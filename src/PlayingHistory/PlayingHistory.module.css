@@ -1,0 +1,14 @@
+.Logo{
+    height: 30px;
+}
+.table{
+    margin: 20px;
+}
+.first{background-color: gold !important;}
+.second{ background-color: silver !important;}
+.third{background-color: chocolate !important;}
+.any{background-color: cornflowerblue !important;}
+.text{
+    margin: 20px;
+    font-size: 25px;
+}
