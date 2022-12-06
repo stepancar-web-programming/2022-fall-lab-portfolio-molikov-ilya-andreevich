@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state, {subscriber} from "./State"
+import state from "./State"
 import {like} from "./State";
+
 
 
 let renderAllTree = () => {
@@ -16,5 +17,6 @@ let renderAllTree = () => {
     );
 }
 renderAllTree();
-subscriber(renderAllTree);
+
 reportWebVitals();
+

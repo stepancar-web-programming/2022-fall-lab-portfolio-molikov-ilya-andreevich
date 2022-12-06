@@ -1,14 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import style from "./Post.module.css"
 import {Button} from "react-bootstrap";
 
 
 const Post = (props) => {
     let counter = props.post.counter;
-    let like = () => {
+    let like =()=>{
+
         counter++;
+        setCounter(counter);
         props.like(props.post.id);
     }
+    const [count, setCounter] = useState(counter);
     if (props.post.isVideo === 0) {
         return (
             <div className={style.MainPost}>

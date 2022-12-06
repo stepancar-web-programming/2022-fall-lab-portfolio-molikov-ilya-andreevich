@@ -1,9 +1,7 @@
 import img2 from "./img2.jpg"
 import video from "./g2.mp4"
 
-let renderAllTree = () => {
 
-}
 let state = {
     main: {
         posts: [
@@ -110,10 +108,8 @@ let state = {
 }
 export const like = (postId) => {
     state.main.posts[postId].counter = state.main.posts[postId].counter + 1;
-    renderAllTree(state, like)
+
 }
-export const subscriber = (observer) => {
-    renderAllTree = observer;
-}
+
 
 export default state;
