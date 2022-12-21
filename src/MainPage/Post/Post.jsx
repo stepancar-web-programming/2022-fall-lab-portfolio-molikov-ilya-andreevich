@@ -1,40 +1,44 @@
-import React, {useState} from "react";
-import style from "./Post.module.css"
-import {Button} from "react-bootstrap";
+import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
+import style from './Post.module.css';
 
-
-const Post = (props) => {
-    let counter = props.post.counter;
-    let like =()=>{
-
-        counter++;
-        setCounter(counter);
-        props.like(props.post.id);
-    }
-    const [count, setCounter] = useState(counter);
-    if (props.post.isVideo === 0) {
-        return (
-            <div className={style.MainPost}>
-                <div className={style.imgContainer}>
-                    <img className={style.img} src={props.post.src}/>
-                </div>
-                <div>{props.post.text}</div>
-                <div className={style.like}>{counter} <Button variant="secondary" onClick={like}>Like!</Button></div>
-            </div>
-        )
-    } else {
-        return (
-            <div className={style.MainPost}>
-                <div className={style.imgContainer}>
-                    <video className={style.img} controls>
-                        <source src={props.post.src} type="video/mp4"/>
-                    </video>
-                </div>
-                <div>{props.post.text}</div>
-                <div className={style.like}>{counter} <Button variant="secondary" onClick={like}>Like!</Button></div>
-            </div>
-        )
-    }
-
+function Post(props) {
+  let { counter } = props.post;
+  const [count, setCounter] = useState(counter);
+  const like = () => {
+    counter += 1;
+    setCounter(counter);
+    props.like(props.post.id);
+  };
+  if (props.post.isVideo === 0) {
+    return (
+      <div className={style.MainPost}>
+        <div className={style.imgContainer}>
+          <img alt="post card" className={style.img} src={props.post.src} />
+        </div>
+        <div>{props.post.text}</div>
+        <div className={style.like}>
+          {counter}
+          {' '}
+          <Button variant="secondary" onClick={like}>Like!</Button>
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className={style.MainPost}>
+      <div className={style.imgContainer}>
+        <video className={style.img} controls>
+          <source src={props.post.src} type="video/mp4" />
+        </video>
+      </div>
+      <div>{props.post.text}</div>
+      <div className={style.like}>
+        {count}
+        {' '}
+        <Button variant="secondary" onClick={like}>Like!</Button>
+      </div>
+    </div>
+  );
 }
 export default Post;

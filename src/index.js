@@ -3,20 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from "./State"
-import {like} from "./State";
+import state, { like } from './State';
 
-
-
-let renderAllTree = () => {
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(
-        <React.StrictMode>
-            <App state={state} like={like}/>
-        </React.StrictMode>
-    );
-}
+const renderAllTree = () => {
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(
+    <React.StrictMode>
+      <App state={state} like={like} />
+    </React.StrictMode>,
+  );
+};
 renderAllTree();
 
 reportWebVitals();
-
